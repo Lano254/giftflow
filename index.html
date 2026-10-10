@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GiftFlow — Sell Gift Cards for Naira &amp; KSh</title>
+  <meta name="description" content="Sell your gift cards for the best rates in Naira (₦) and Kenyan Shilling (KSh). Fast payouts, transparent rates, trusted by thousands." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#ecfeff',
+              100: '#cffafe',
+              400: '#22d3ee',
+              500: '#06b6d4',
+              600: '#0891b2',
+              700: '#0e7490',
+              800: '#155e75',
+              900: '#164e63',
+            },
+            dark: {
+              900: '#0b1120',
+              800: '#0f172a',
+              700: '#1e293b',
+              600: '#334155',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-dark-900 text-white antialiased">
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-900/90 backdrop-blur-md border-b border-dark-700">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2 font-bold text-xl tracking-tight">
+        <span class="w-8 h-8 rounded-lg bg-brand-500 flex items-center justify-center text-dark-900 font-black text-sm">GF</span>
+        GiftFlow
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm text-slate-300">
+        <a href="#rates" class="hover:text-white transition">Rates</a>
+        <a href="#how" class="hover:text-white transition">How it works</a>
+        <a href="#cards" class="hover:text-white transition">Gift Cards</a>
+        <a href="#sell" class="hover:text-white transition">Sell</a>
+      </div>
+      <a href="#sell" class="bg-brand-500 hover:bg-brand-400 text-dark-900 font-semibold px-5 py-2.5 rounded-full text-sm transition">
+        Sell Now
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="relative pt-32 pb-20 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-brand-900/20 via-transparent to-transparent pointer-events-none"></div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center relative">
+      <div class="inline-flex items-center gap-2 bg-brand-500/10 border border-brand-500/30 text-brand-400 text-xs font-medium px-3 py-1.5 rounded-full mb-6">
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse"></span>
+        Best rates in ₦ &amp; KSh • Updated live
+      </div>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+        Maximize Your<br class="sm:hidden" />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-cyan-300">Gift Card’s Worth</span>
+      </h1>
+      <p class="text-lg text-slate-400 max-w-xl mx-auto mb-10">
+        Sell Amazon, iTunes, Steam, Google Play and 30+ gift cards for the highest rates in <strong class="text-white">Naira</strong> and <strong class="text-white">Kenyan Shilling</strong>. Fast, secure, transparent.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#sell" class="w-full sm:w-auto bg-brand-500 hover:bg-brand-400 text-dark-900 font-bold px-8 py-3.5 rounded-full text-base transition shadow-lg shadow-brand-500/25">
+          Sell Gift Card Now
+        </a>
+        <a href="#rates" class="w-full sm:w-auto border border-dark-600 hover:border-brand-500/50 text-slate-300 hover:text-white font-medium px-8 py-3.5 rounded-full text-base transition">
+          Check Live Rates
+        </a>
+      </div>
+      <p class="mt-8 text-sm text-slate-500">Trusted by 50,000+ users across Nigeria &amp; Kenya</p>
+    </div>
+  </header>
+
+  <!-- Rate Calculator -->
+  <section id="rates" class="py-16 sm:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold mb-3">Know Your Gift Card Value Instantly</h2>
+        <p class="text-slate-400">Select a card, enter the face value, and see exactly how much you’ll receive in ₦ or KSh.</p>
+      </div>
+
+      <div class="bg-dark-800 border border-dark-600 rounded-2xl p-6 sm:p-8 shadow-xl">
+        <div class="grid sm:grid-cols-3 gap-4 mb-6">
+          <div>
+            <label class="block text-xs font-medium text-slate-400 mb-1.5">Gift Card</label>
+            <select id="cardSelect" class="w-full bg-dark-700 border border-dark-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-brand-500/50">
+              <option value="amazon">Amazon</option>
+              <option value="itunes">Apple / iTunes</option>
+              <option value="steam">Steam</option>
+              <option value="google">Google Play</option>
+              <option value="sephora">Sephora</option>
+              <option value="visa">Visa</option>
+              <option value="razer">Razer Gold</option>
+              <option value="xbox">Xbox</option>
+              <option value="walmart">Walmart</option>
+              <option value="nike">Nike</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-400 mb-1.5">Face Value (USD)</label>
+            <input type="number" id="faceValue" value="100" min="10" max="1000" step="5"
+                   class="w-full bg-dark-700 border border-dark-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-brand-500/50" />
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-400 mb-1.5">Payout Currency</label>
+            <select id="currencySelect" class="w-full bg-dark-700 border border-dark-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-brand-500/50">
+              <option value="ngn">Nigerian Naira (₦)</option>
+              <option value="kes">Kenyan Shilling (KSh)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="bg-dark-900/60 border border-brand-500/20 rounded-xl p-5 mb-6">
+          <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2">
+            <div>
+              <p class="text-sm text-slate-400 mb-1">You will receive</p>
+              <p id="payoutAmount" class="text-3xl sm:text-4xl font-bold text-brand-400 tracking-tight">₦142,500</p>
+            </div>
+            <div class="text-right">
+              <p class="text-xs text-slate-500">Rate</p>
+              <p id="rateDisplay" class="text-sm font-medium text-slate-300">₦1,425 / $</p>
+            </div>
+          </div>
+          <div class="mt-3 flex items-center gap-2 text-xs text-emerald-400">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span id="bestRateBadge">~12% better than average market rate</span>
+          </div>
+        </div>
+
+        <button onclick="document.getElementById('sell').scrollIntoView({behavior:'smooth'})"
+                class="w-full bg-brand-500 hover:bg-brand-400 text-dark-900 font-bold py-3.5 rounded-xl transition">
+          Continue to Sell →
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="py-16 sm:py-20 bg-dark-800/50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-3">How GiftFlow Works</h2>
+        <p class="text-slate-400 max-w-lg mx-auto">Three simple steps. Most trades complete in under 5 minutes.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-dark-800 border border-dark-600 rounded-2xl p-6 text-center">
+          <div class="w-12 h-12 rounded-full bg-brand-500/20 text-brand-400 flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
+          <h3 class="font-semibold text-lg mb-2">Upload your card</h3>
+          <p class="text-slate-400 text-sm">Take a clear photo of the gift card or paste the e-code. We support physical cards and digital codes.</p>
+        </div>
+        <div class="bg-dark-800 border border-dark-600 rounded-2xl p-6 text-center">
+          <div class="w-12 h-12 rounded-full bg-brand-500/20 text-brand-400 flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
+          <h3 class="font-semibold text-lg mb-2">Get the best rate</h3>
+          <p class="text-slate-400 text-sm">See the exact amount in ₦ or KSh before you confirm. No hidden fees. Transparent pricing.</p>
+        </div>
+        <div class="bg-dark-800 border border-dark-600 rounded-2xl p-6 text-center">
+          <div class="w-12 h-12 rounded-full bg-brand-500/20 text-brand-400 flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
+          <h3 class="font-semibold text-lg mb-2">Receive payout</h3>
+          <p class="text-slate-400 text-sm">Funds arrive in your Nigerian or Kenyan bank account / mobile wallet within minutes after verification.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Supported Cards -->
+  <section id="cards" class="py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold mb-3">30+ Gift Cards Supported</h2>
+        <p class="text-slate-400">We accept the most popular cards from the US, UK, Canada and more.</p>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4" id="cardGrid">
+        <!-- populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Sell Form -->
+  <section id="sell" class="py-16 sm:py-20 bg-dark-800/50">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold mb-3">Start Selling</h2>
+        <p class="text-slate-400">Fill the form below. This is a demo — no real transaction will occur.</p>
+      </div>
+
+      <form id="sellForm" class="bg-dark-800 border border-dark-600 rounded-2xl p-6 sm:p-8 space-y-5" onsubmit="handleSell(event)">
+        <div>
+          <label class="block text-xs font-medium text-slate-400 mb-1.5">Gift Card Type</label>
+          <select required class="w-full bg-dark-700 border border-dark-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-brand-500/50">
+            <option value="">Select card…</option>
+            <option>Amazon</option>
+            <option>Apple / iTunes</option>
+            <option>Steam</option>
+            <option>Google Play</option>
+            <option>Sephora</option>
+            <option>Visa</option>
+            <option>Razer Gold</option>
+            <option>Xbox</option>
+            <option>Walmart</option>
+            <option>Nike</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-medium text-slate-400 mb-1.5">Face Value (USD)</label>
+            <input type="number" required min="10" placeholder="e.g. 100"
+                   class="w-full bg-dark-700 border border-dark-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-brand-500/50" />
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-400 mb-1.5">Preferred Payout</label>
+            <select required class="w-full bg-dark-700 border border-dark-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-brand-500/50">
+              <option value="ngn">Nigerian Naira (₦)</option>
+              <option value="kes">Kenyan Shilling (KSh)</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-slate-400 mb-1.5">Gift Card Code / Details</label>
+          <textarea rows="3" placeholder="Paste e-code or describe the card (optional for demo)"
+                    class="w-full bg-dark-700 border border-dark-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-brand-500/50 resize-none"></textarea>
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-slate-400 mb-1.5">Your Email or Phone</label>
+          <input type="text" required placeholder="email@example.com or +234 / +254"
+                 class="w-full bg-dark-700 border border-dark-600 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-brand-500/50" />
+        </div>
+        <button type="submit"
+                class="w-full bg-brand-500 hover:bg-brand-400 text-dark-900 font-bold py-3.5 rounded-xl transition">
+          Submit Trade (Demo)
+        </button>
+        <p id="formMessage" class="text-center text-sm hidden"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Trust -->
+  <section class="py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid md:grid-cols-3 gap-6 text-center">
+        <div class="p-6">
+          <div class="text-3xl font-bold text-brand-400 mb-2">Fast</div>
+          <p class="text-slate-400 text-sm">Most trades verified and paid in under 5 minutes. Timeout compensation if we delay.</p>
+        </div>
+        <div class="p-6">
+          <div class="text-3xl font-bold text-brand-400 mb-2">Transparent</div>
+          <p class="text-slate-400 text-sm">See the exact rate and payout amount before you confirm. No hidden fees.</p>
+        </div>
+        <div class="p-6">
+          <div class="text-3xl font-bold text-brand-400 mb-2">Secure</div>
+          <p class="text-slate-400 text-sm">Encrypted submissions, verified cards only, and payouts to your own bank or mobile wallet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-dark-700 py-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+      <div class="flex items-center gap-2">
+        <span class="w-6 h-6 rounded bg-brand-500 flex items-center justify-center text-dark-900 font-black text-xs">GF</span>
+        <span>GiftFlow</span>
+      </div>
+      <p>Demo site for GitHub Pages • Focused on ₦ &amp; KSh payouts</p>
+      <p>Not affiliated with GiftCard8 or any real trading platform</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
